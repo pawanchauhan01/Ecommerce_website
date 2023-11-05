@@ -1,0 +1,224 @@
+body{
+    
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+} 
+.logo{
+    height: 70ox;
+    width: 150px;
+}
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: #e3e6f3;
+    box-shadow: o 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#navbar.active{
+    right: 0px;
+}
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+#navbar li button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3 ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active{
+    color: #088178;
+    
+}
+/* before and after are the pseudo class */
+
+#navbar li a.active::after,
+#navbar li button:hover::after,
+#navbar li a:hover::after{ /*we add this line so that when the hover on the other anchor element these property will show*/
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+
+}
+
+#mobile{
+    display: none;
+    align-items: center;
+}
+#close{
+    display: none;
+}
+.search{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 60px;
+    transition: 0.5s; 
+    box-shadow:  0 0 0 2px #E3E6F3;
+    overflow: hidden; 
+} 
+.search.active{
+    width: 360px;
+}
+.search .icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: #e3e6f3;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.search .icon::before{
+    content: ' ';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 3px solid #088178;
+    border-radius: 50%;
+    transform: translate(-3px, -2px) rotate(315deg);
+}
+.search .icon::after{
+    content: ' ';
+    position: absolute;
+    width: 3px;
+    height: 8px;
+    background: #088178;
+    transform: translate(5px,6px) rotate(315deg);
+} 
+.search input{
+    position:relative ;
+    width: 300px;
+    height: 40px;
+    left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search .input input{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 20px 10px;
+    font-weight: 800;
+}
+.clear{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    right: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clear::before{
+    position: absolute;
+    content: ' ';
+    width: 2px;
+    height: 15px;
+    background: #088178;
+    transform: rotate(45deg);
+}
+.clear::after{
+    position: absolute;
+    content: ' ';
+    width: 2px;
+    height: 15px;
+    background: #088178;
+    transform: rotate(-45deg);
+}
+
+
+
+/* responsive nav */
+@media (max-width:799px) {
+    #navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content:flex-start ;
+        position: fixed;
+        top: 0;
+        right: -250px;   
+        height: 100vh;
+        width: 250px;
+        background-color: #E3E6F3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1); 
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    #navbar li{
+        margin-bottom: 25px; 
+         }
+
+      #mobile{
+        display: flex; 
+        align-items: center;
+      }   
+      #mobile i{
+        color: #1a1a1a;
+        font-size: 16px;
+        padding-left: 20px;
+      }
+      #mobile .search{
+        color: #1a1a1a;
+        font-size: 16px;
+        padding-left: 20px;
+      }
+
+      #close{
+        display: flex;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        font-size: 24px;
+        color: #222;
+      }
+      #lg-bag{
+        display: none ;
+      }
+    .search1.active{
+        width: 360px;
+    }
+      
+    
+}
